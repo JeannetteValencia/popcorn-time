@@ -1,9 +1,9 @@
 import React from "react"
 export default function Movie(props){
-    function popular (rating){
-        if(rating > 8) {
-            return "Popular"
-        }
+  function popular (rating){
+      if(rating > 8) {
+          return "Popular"
+      }
 
     }
   return (
