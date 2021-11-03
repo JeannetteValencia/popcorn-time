@@ -15,3 +15,8 @@ React codealong: a React App
 # Step 2: Displaying movies with MAP
 [X] Create an Array with id, title, rating
 [X] Use the Map method to create a new array and access information to be render in the browser
+
+# Step 3: Interacting with a json file
+[X] Create a json file inside data folder
+[X] import the file
+[X] add border and add the year
