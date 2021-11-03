@@ -9,5 +9,9 @@ React codealong: a React App
 [X] Create one file per components inside the folder "components"
 [X] Create the components
 [X] Export the components and import them in the App.js file
-[X] Move the App.js file to the components folder 
+[X] Move the App.js file to the components folder
 [X] Change the location of the App.js in the index.js file
+
+# Step 2: Displaying movies with MAP
+[X] Create an Array with id, title, rating
+[X] Use the Map method to create a new array and access information to be render in the browser
