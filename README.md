@@ -34,3 +34,21 @@ React codealong: a React App
 [X] setState uses an object or a function, use a function
 [X] Use the filter method to filter the array with the condition of themovies  launched before 2000
 [X] Return the object with the updated filter
+
+# Step 6 Display a Form to create a Movie
+
+[X] Create the form in our JSX (HTML tags)
+[X] Make a Controlled Component
+  - Initialize state
+  - Set the input value from state (ex. `value={this.state.title}` )
+  - Add onChange event (and update state with the new value)
+
+ # Step 7 Handle form submission
+
+ [X] Create a function/ a method in the Main component
+ [X] In the child component, we need to pass a reference to the method and read it through PROPS
+ [X] Update the function with the information from the child by adding the newDetails to the prevState
+ [X] Add a key for the new movie
+
+ # Step 8 Optional: clear form upon submission
+
