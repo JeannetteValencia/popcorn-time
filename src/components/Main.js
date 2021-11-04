@@ -10,6 +10,13 @@ export class Main extends React.Component{
     }
   }
 
+  createMovie = (newMovieDetails) =>{
+    newMovieDetails.id = this.state.moviesToDisplay.length + 1
+    this.setState((prevState, props)=>{
+      const newList = [newMovieDetails, ...prevState.moviesToDisplay]
+       return {moviesToDisplay: newList}
+    })
+  }
   renderClassicsOnly= ()=>{//arrow functions allow me to access this
     this.setState((prevState, props)=>{
       const newList= prevState.moviesToDisplay.filter((movie)=>{
@@ -27,8 +34,8 @@ export class Main extends React.Component{
             </button>
           </div>
 
-          <AddMovie/>
-          
+          <AddMovie addMovieHandler= {this.createMovie}/> 
+
         <div className="movie-list">
           {this.state.moviesToDisplay.map((movie)=>{
             return <Movie key={movie.id} title={movie.title} year={movie.year} rating={movie.rating} imgURL={movie.imgURL}/>

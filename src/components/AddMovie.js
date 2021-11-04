@@ -14,12 +14,24 @@ export default class AddMovie extends Component {
   handleInputChange =(event)=>{
     const inputName = event.target.name;
     this.setState({[inputName]: event.target.value})
+    console.log(this.state)
+  }
+
+  handleSubmit = (event)=>{
+    event.preventDefault()
+    const movieInfo= {
+      title: this.state.title,
+      year: this.state.year,
+      rating: this.state.rating,
+    }
+    this.props.addMovieHandler(movieInfo)
+    console.log("submit")
   }
   render() {
     return (
       <div className="AddMovie">
         <h2>Add a new Movie</h2>
-        <form>
+        <form onSubmit = {this.handleSubmit}>
           <label>
             Title:
             <input type="text" name="title" min="1900" max="2050" value={this.state.title} onChange={this.handleInputChange}></input>
