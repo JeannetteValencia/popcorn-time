@@ -38,11 +38,11 @@ export default class AddMovie extends Component {
         <form onSubmit = {this.handleSubmit}>
           <label>
             Title:
-            <input type="text" name="title" min="1900" max="2050" value={this.state.title} onChange={this.handleInputChange}></input>
+            <input type="text" name="title" value={this.state.title} onChange={this.handleInputChange}></input>
           </label>
           <label>
             Year:
-            <input type="number" name="year" value={this.state.year} onChange={this.handleInputChange}></input>
+            <input type="number" name="year" min="1900" max="2050" value={this.state.year} onChange={this.handleInputChange}></input>
           </label>
           <label>
             Rating:
