@@ -11,7 +11,14 @@ export class Main extends React.Component{
   }
 
   createMovie = (newMovieDetails) =>{
-    newMovieDetails.id = this.state.moviesToDisplay.length + 1
+    //Code use to provide an id to the new movie created
+    const arrayOfIds = this.state.moviesToDisplay.map(movie =>movie.id);
+    newMovieDetails.id = Math.max(...arrayOfIds)+1
+
+    //keep data consistency for new movies
+    newMovieDetails.genres= [],
+    newMovieDetails.image= "",
+    
     this.setState((prevState, props)=>{
       const newList = [newMovieDetails, ...prevState.moviesToDisplay]
        return {moviesToDisplay: newList}
