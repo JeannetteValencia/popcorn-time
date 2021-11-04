@@ -24,8 +24,12 @@ export default class AddMovie extends Component {
       year: this.state.year,
       rating: this.state.rating,
     }
-    this.props.addMovieHandler(movieInfo)
-    console.log("submit")
+    this.props.addMovieHandler(movieInfo);
+    this.setState({
+      title: "",
+      year: "",
+      rating: "",
+    })
   }
   render() {
     return (
@@ -41,7 +45,7 @@ export default class AddMovie extends Component {
             <input type="number" name="year" value={this.state.year} onChange={this.handleInputChange}></input>
           </label>
           <label>
-            Year:
+            Rating:
             <input type="number" name="rating" min="0" max="10" value={this.state.rating} onChange={this.handleInputChange}></input>
           </label>
            <button>Submit</button>

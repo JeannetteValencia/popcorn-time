@@ -1,16 +1,7 @@
-import moviesArr from "../data/movies.json"
 import React from "react"
-import './App.css';
-import {Header} from "./Header"
-import {Footer} from "./Footer"
-import {Main} from "./Main"
-
-
-class App extends React.Component{
-  state = {
-    moviesToDisplay: moviesArr
-  }
-
+import Movie from "./Movie"
+import AddMovie from "./AddMovie"
+export class Main extends React.Component{
   createMovie = (newMovieDetails) =>{
     //Code use to provide an id to the new movie created
     const arrayOfIds = this.state.moviesToDisplay.map(movie =>movie.id);
@@ -21,7 +12,6 @@ class App extends React.Component{
        return {moviesToDisplay: newList}
     })
   }
-
   renderClassicsOnly= ()=>{//arrow functions allow me to access this
     this.setState((prevState, props)=>{
       const newList= prevState.moviesToDisplay.filter((movie)=>{
@@ -30,16 +20,24 @@ class App extends React.Component{
       return {moviesToDisplay: newList};
     })
   }
-
   render(){
     return (
-      <div className="App">
-        <Header listOfMovies={this.state.moviesToDisplay}/>
-        <Main createMovie={this.createMovie} listOfMovies={this.state.moviesToDisplay} buttonToRenderClassics={this.renderClassicsOnly}/>
-        <Footer/>
-      </div>
-      )
+      <>
+        <div className="controls">
+            <button onClick={this.renderClassicsOnly}>
+              Display only classics
+            </button>
+          </div>
+
+          <AddMovie addMovieHandler= {this.createMovie}/> 
+
+        <div className="movie-list">
+          {this.state.moviesToDisplay.map((movie)=>{
+            return <Movie key={movie.id} title={movie.title} year={movie.year} rating={movie.rating} imgURL={movie.imgURL}/>
+          })}
+  
+        </div>
+      </>
+    )
   }
 }
-
-export default App;
